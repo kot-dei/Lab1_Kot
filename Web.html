@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Massive</title>
+</head>
+<body>
+<div id="result"></div>
+<script type="text/javascript">
+//В данном случае, код при более больших числах работает не очень корректно, поэтому можно использовать закоменнтированный массив, который будет работать корректно, но мы не сможем вводить данные с клавиатуры.
+//var a = [1, 61, 2, 67, -30, 12, -77, 100, 126, -102, 6];
+var a = [], t, c, b, sum = 0;
+for(var i = 0; i < 10; i++){
+	var N = prompt("Введите значение массива: ");
+	//a[i] = Number(N);
+	a.push(Number(N));
+}
+document.write("Исходный массив: " + a);
+//alert("Исходный массив: " + a + " ");
+var a_min = a[0];
+for (i = 1; i < a.length; i++) {
+   if (a[i] < a_min) {
+      a_min = a[i];   
+   }
+}
+document.write("<br>Минимальное значение: " + a_min);
+//alert("<br>Минимальное значение: " + a_min);
+var a_max = a[0];
+for (i = 1; i < a.length; i++) {
+   if (a[i] > a_max) {
+      a_max = a[i];   
+   }
+}
+document.write("<br>Максимальное значение: " + a_max);
+//alert("<br>Максимальное значение: " + a_max);
+
+for(c = 1; c < a.length; c++){
+	for(b = a.length - 1; b >= c; b--){
+		if(a[b - 1] > a[b]){
+			t = a[b - 1];
+			a[b - 1] = a[b];
+			a[b] = t;
+		}
+	}
+}
+document.write("<br>", "Отсортированный массив: ");
+//alert("<br>", "Отсортированный массив: ");
+for(t = 0; t < a.length; t++){
+	document.write(a[t], " ");
+}
+document.write("<br>", "Сумма элементов массива: ");
+//alert("<br>", "Сумма элементов массива: ");
+for(t = 0; t < a.length; t++){
+	sum += Number(a[t]); 
+}
+document.write(sum);
+//alert(sum);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
